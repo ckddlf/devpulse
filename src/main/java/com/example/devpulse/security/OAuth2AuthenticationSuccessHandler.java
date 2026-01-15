@@ -29,6 +29,7 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
         String targetUrl = "http://localhost:3000/dashboard?login=success";
         
         // 개발 중에는 간단한 성공 페이지로 리다이렉트
-        getRedirectStrategy().sendRedirect(request, response, "/login/success");
+        getRedirectStrategy().sendRedirect(request, response, "/dashboard");
+
     }
 }

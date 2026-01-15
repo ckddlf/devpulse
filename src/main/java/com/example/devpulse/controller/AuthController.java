@@ -23,4 +23,13 @@ public class AuthController {
         model.addAttribute("avatarUrl", oAuth2User.getAttributes().get("avatar_url"));
         return "success";
     }
+
+     @GetMapping("/dashboard")
+    public String dashboard(@AuthenticationPrincipal CustomOAuth2User oAuth2User, Model model) {
+        log.info("Dashboard - User ID: {}", oAuth2User.getUserId());
+        model.addAttribute("username", oAuth2User.getAttributes().get("login"));
+        model.addAttribute("email", oAuth2User.getAttributes().get("email"));
+        model.addAttribute("avatarUrl", oAuth2User.getAttributes().get("avatar_url"));
+        return "dashboard";
+    }
 }
